@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'secure_download'
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.date        = '2012-09-28'
   s.summary     = "Secure download for CarrierWave and CanCan"
   s.description = "A simple hello world gem"
@@ -10,4 +10,6 @@ Gem::Specification.new do |s|
   s.homepage    =
     'http://rubygems.org/gems/secure_download'
   s.license       = 'MIT'
+  s.add_runtime_dependency "cancan"
+  s.add_runtime_dependency "carrierwave"
 end
