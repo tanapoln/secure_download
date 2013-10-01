@@ -1,4 +1,4 @@
-class SecureDownloadController < ApplicationController
+class SecureDownload::DownloadController < ApplicationController
   def download
     model = params[:model]
     field = params[:field]
@@ -11,7 +11,7 @@ class SecureDownloadController < ApplicationController
     rescue NameError, ActiveRecord::RecordNotFound, NoMethodError
       not_found
     end
-    p upload_field.hello_world
+    
     do_ability = "download_#{field}".to_sym
     return send_file(absolute_file_path(upload_field), x_sendfile: true) if can? do_ability, obj
 

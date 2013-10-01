@@ -18,7 +18,7 @@ module CarrierWave
         old_uploader
         @uploader.instance_eval <<-RUBY, __FILE__, __LINE__+1
           def secure_url
-            url_for :controller => 'secure_download', :action => 'download', :model => model.class.name, :field => '#{column}', :id => model.id
+            url_for :controller => 'secure_download/download', :action => 'download', :model => model.class.name, :field => '#{column}', :id => model.id
           end
         RUBY
         return @uploader

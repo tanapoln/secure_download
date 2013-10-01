@@ -10,7 +10,9 @@ if defined?(Rails)
     class Railtie < Rails::Railtie
       initializer "secure_download.active_record" do
         ActiveSupport.on_load :active_record do
+          require_relative '../app/controllers/download_controller'
           require 'secure_download/carrierwave_extends'
+          require 'secure_download/routes'
         end
       end
     end
