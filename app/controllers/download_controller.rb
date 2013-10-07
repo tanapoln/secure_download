@@ -13,15 +13,14 @@ class SecureDownload::DownloadController < ApplicationController
     end
     
     do_ability = "download_#{field}".to_sym
-    return send_file(absolute_file_path(upload_field), x_sendfile: true) if can? do_ability, obj
+    disposition = params.include?(:view) ? 'inline': 'attachment'
+    return send_file(absolute_file_path(upload_field), x_sendfile: true, disposition: disposition) if can? do_ability, obj
 
     not_found
   end
 
   private
     def absolute_file_path(carrierwave_obj)
-      #Rails.root.join('secure_download', carrierwave_obj.current_path)
-      p carrierwave_obj.current_path
       carrierwave_obj.current_path
     end
 
