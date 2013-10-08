@@ -1,6 +1,6 @@
-require 'active_support/core_ext/object/blank'
-require 'active_support/core_ext/class/attribute'
-require 'active_support/concern'
+# require 'active_support/core_ext/object/blank'
+# require 'active_support/core_ext/class/attribute'
+# require 'active_support/concern'
 
 module SecureDownload
 end
@@ -8,13 +8,13 @@ end
 if defined?(Rails)
   module SecureDownload
     class Railtie < Rails::Railtie
-      initializer "secure_download.active_record" do
-        ActiveSupport.on_load :active_record do
+      # initializer "secure_download.active_record" do
+        ActiveSupport.on_load :after_initialize do
           require_relative '../app/controllers/download_controller'
           require 'secure_download/carrierwave_extends'
           require 'secure_download/routes'
         end
-      end
+      # end
     end
   end
 end
