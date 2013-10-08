@@ -1,4 +1,4 @@
-class SecureDownload::DownloadController < ApplicationController
+class SecureDownload::DownloadController < ActionController::Base
   def download
     model = params[:model]
     field = params[:field]
