@@ -18,3 +18,16 @@ outside of public dir
 # Usage
 without this gem, you use model.carrierwave_file.url
 when this gem was added, use model.carrierwave_file.secure_url instead
+
+Next, add CanCan permission in ability.rb with format download_*.
+So, if you have
+
+    mount_uploader :file, FileUploader
+
+in User model, and you want user to be able to download the file then,
+add this line to ability.rb
+
+    can :download_file, User
+
+Where `file` is column name and User is a model that this column be inside.
+You can add further filter, see more at https://github.com/ryanb/cancan/wiki/Defining-Abilities
