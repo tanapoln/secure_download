@@ -16,9 +16,6 @@ then change store_dir in your carrierwave uploader class to other path
 outside of public dir
 
 # Usage
-without this gem, you use model.carrierwave_file.url
-when this gem was added, use model.carrierwave_file.secure_url instead
-
 Next, add CanCan permission in ability.rb with format download_*.
 So, if you have
 
@@ -31,3 +28,6 @@ add this line to ability.rb
 
 Where `file` is column name and User is a model that this column be inside.
 You can add further filter, see more at https://github.com/ryanb/cancan/wiki/Defining-Abilities
+
+Normally, you use `user.file.url`, when this gem was added, use `user.file.secure_url` instead
+If you don't want user to be forced to download, use `user.file.secure_url(true)`
