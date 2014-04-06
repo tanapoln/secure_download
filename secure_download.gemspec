@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description = "Secure download for CarrierWave with CanCan"
   s.authors     = ["Tanapol Nearunchorn"]
   s.email       = 'tanapo.sh@gmail.com'
-  s.homepage    = 'http://rubygems.org/gems/secure_download'
+  s.homepage    = 'https://github.com/Stackle/secure_download'
   s.license     = 'MIT'
   
   s.files = Dir["{app,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
