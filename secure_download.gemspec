@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://rubygems.org/gems/secure_download'
   s.license     = 'MIT'
   
-  s.files = Dir["{app,config}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
   
   s.add_dependency "rails", '~> 3.2'
