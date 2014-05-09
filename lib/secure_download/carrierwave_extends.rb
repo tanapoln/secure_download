@@ -17,14 +17,16 @@ module CarrierWave
       def uploader
         old_uploader
         @uploader.instance_eval <<-RUBY, __FILE__, __LINE__+1
-          def secure_url(view=false)
-            hash = {:controller => 'secure_download/download', 
-              :action => 'download', 
-              :model => model.class.name, 
-              :field => '#{column}', 
+          def secure_url(view=false, **kwarg)
+            hash = {:controller => 'secure_download/download',
+              :action => 'download',
+              :model => model.class.name,
+              :field => '#{column}',
               :id => model.id }
             hash[:view] = view if view
-            url_for hash
+            kwarg ||= {}
+            merged = kwarg.merge(hash)
+            url_for(merged)
           end
         RUBY
         return @uploader
