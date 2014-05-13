@@ -26,7 +26,7 @@ module CarrierWave
             hash[:view] = view if view
             kwarg ||= {}
             merged = kwarg.merge(hash)
-            url_for(merged)
+            secure_download_url(merged)
           end
         RUBY
         return @uploader
